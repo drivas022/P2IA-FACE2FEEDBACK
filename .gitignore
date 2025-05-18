@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+
+# Modelos entrenados
+models/*.h5
+models/*.hdf5
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de log o ejecución
+*.log
+*.tmp
+
+# Archivos generados por Jupyter
+.ipynb_checkpoints/
+
+# Archivos de configuración locales
+*.env
+.env
+
+# Archivos de cache de herramientas
+*.tensorboard-info
+*.idea/
+*.vscode/
+*.VSCodeCounter/
+
+# Archivos de dataset pesados (si no quieres subirlos a GitHub)
+data/train/
+data/test/
+
+# Archivos de backup temporales
+*.bak
+*.swp
+*~
