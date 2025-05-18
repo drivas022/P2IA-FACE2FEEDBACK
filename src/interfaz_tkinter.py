@@ -6,6 +6,8 @@ import numpy as np
 from PIL import Image, ImageTk
 from tensorflow.keras.models import load_model
 from collections import Counter
+import os
+from datetime import datetime
 
 modelo = load_model('models/modelo_entrenado.h5')
 emociones = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
@@ -96,18 +98,31 @@ class EmotionApp:
         if self.cap:
             self.cap.release()
 
-        # Resumen de emociones
         conteo = Counter(self.emociones_detectadas)
         if not conteo:
             messagebox.showinfo("Resumen", "No se detectaron emociones.")
             return
 
-        resumen = "\\n".join([f"{emo}: {conteo[emo]}" for emo in conteo])
+        resumen = "\n".join([f"{emo}: {conteo[emo]}" for emo in conteo])
         emocion_principal = conteo.most_common(1)[0][0]
         recomendacion = recomendaciones.get(emocion_principal, "No se pudo generar recomendación.")
 
+        # Crear carpeta results y guardar .txt
+        os.makedirs("results", exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        ruta = f"results/detalle_sesion_{timestamp}.txt"
+
+        with open(ruta, "w", encoding="utf-8") as f:
+            f.write("🧠 RESULTADO DE LA SESIÓN\n")
+            f.write(f"Fecha y hora: {datetime.now()}\n\n")
+            f.write("Emociones detectadas:\n")
+            for emo, count in conteo.items():
+                f.write(f"- {emo}: {count}\n")
+            f.write(f"\nEmoción predominante: {emocion_principal}\n")
+            f.write(f"Recomendación final: {recomendacion}\n")
+
         messagebox.showinfo("Resumen del análisis",
-                            f"Emociones detectadas:\\n{resumen}\\n\\nRecomendación final:\\n{recomendacion}")
+                            f"Emociones detectadas:\n{resumen}\n\nRecomendación final:\n{recomendacion}\n\nResultado guardado en:\n{ruta}")
 
         self.recomendacion_texto.set("Recomendación: ---")
 
