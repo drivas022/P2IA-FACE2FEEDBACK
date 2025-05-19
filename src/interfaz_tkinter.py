@@ -8,6 +8,7 @@ from tensorflow.keras.models import load_model
 from collections import Counter
 import os
 from datetime import datetime
+from correo_utils import enviar_recomendacion_por_correo
 
 # Configuración matplotlib (debe ir antes que la importación)
 import matplotlib

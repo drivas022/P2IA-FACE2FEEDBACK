@@ -6,7 +6,7 @@ def enviar_recomendacion_por_correo(emocion, recomendacion):
     # Configuración
     remitente = "luissebastiansanchez15@gmail.com"
     app_password = "svxg vysp kufk qthg" 
-    receptor = "suissebas12@gmail.com"
+    receptor = "drivas022@gmail.com"
     asunto = "Recomendación emocional en clase"
     
     # Cuerpo del mensaje
