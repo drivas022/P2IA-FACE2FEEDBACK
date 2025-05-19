@@ -568,7 +568,8 @@ class ModernEmotionApp:
             for i, (emo, count) in enumerate(conteo.most_common(3)):
                 porcentaje = (count / len(self.emociones_detectadas)) * 100
                 resumen_texto += f"{i+1}. {emo.capitalize()}: {count} ({porcentaje:.1f}%)\n"
-            
+              #enviar correo de sesion
+            enviar_recomendacion_por_correo(emocion_principal, recomendaciones.get(emocion_principal, "Sin recomendación."))
             messagebox.showinfo("Resumen de Sesión", resumen_texto)
             
         except Exception as e:
