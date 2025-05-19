@@ -12,10 +12,13 @@ ENV/
 # Archivos TXT
 *.txt
 *.csv
+*.png
+# Results
+**/results/
 
 # Modelos entrenados
-models/*.h5
-models/*.hdf5
+#models/*.h5
+#models/*.hdf5
 
 # Archivos del sistema
 .DS_Store
