@@ -66,6 +66,17 @@ facial_emotion_recognition/
 ## 🚀 Cómo ejecutar el sistema
 
 ### 1. Instala las dependencias
+
+Verifica la versión de python que tienes instalado, ya que esta versión fue creada con python 3.10.0. Lo cual hay algunas librerias que no tienen aún soporte para las ultimas versiones de python. Puedes verificarlo con el siguiente comando:
+
+```bash
+python --version
+```
+
+Y esto debera arrojar algo como `Python versión 3.10.0`
+
+Posteriormente de revisar la versión ya podemos instalar el archivo `requirements.txt`
+
 ```bash
 pip install -r requirements.txt
 ```
